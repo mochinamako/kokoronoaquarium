@@ -1,25 +1,161 @@
 @charset "UTF-8";
 
+
+@font-face {
+  font-family: "shippori_regular"; /*任意の名前をつけてOK*/
+  src: url("../fonts/ShipporiMincho-Regular.ttf") format("truetype"); /*フォントのデータ形式によってformatは変わる。ttfならtruetype*/
+  font-display: swap; /*「swap」はWebフォントが読み込まれるまでフォールバックフォントで表示し、読み込まれた時点で置き換えます。*/
+}
+
+
+@font-face {
+  font-family: "shippori_bold"; /*任意の名前をつけてOK*/
+  src: url("../fonts/ShipporiMincho-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+
+/*Googleフォント　しっぽり明朝*/
+.shippori-mincho-regular {
+  font-family: "Shippori Mincho", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.shippori-mincho-bold {
+  font-family: "Shippori Mincho", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+/*Googleフォント　しっぽり明朝*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #343765;
+}
+
 .header {
-  background: #DDD;
   display: flex;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.header_logo {
+  width: 400px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.logo {
+  width: 350px;
+}
+
+/*.nav {
+  position: relative;
+  right: 0;
+  bottom: 0;
+}*/
+
+nav ul {
+  font-family: shippori_bold;
+  display: flex;
+  list-style-type: none;
+  position: absolute; /*headerのposition: relative;によって、ヘッダー部分の中での位置を指定できる relativeとabsoluteはセットが多い*/
+  right: 20px;
+  bottom: 20px;
+}
+/*子孫セレクタ　navの中のulに適用*/
+
+a:link {
+  text-decoration: none;
+  color: #dddff3;
+}
+/*link擬似クラス リンク先（href属性）を指定されている<a>タグにのみ装飾*/
+
+a:visited {
+  color: #dddff3;
+}
+
+.menu_item {
+  margin-right: 20px;
+}
+
+.page_title {
+  font-family: shippori_bold;
+  font-size: 40px;
+  text-align: center;
+  color: #dddff3;
+}
+
+p {
+  font-size: 62.5%; /*デフォルトの16pxを10pxに　remで指定していろんな大きさに*/
+  font-family: shippori_regular
 }
 
 .scroll_container {
   width: 100%; /* 親の幅は画面いっぱい */
   background-color: #f0f0f0; /* 薄いグレー */
-  padding: 16px;
-  border: 1px solid #ccc;
+  padding: 20px;
+  /*border: 1px solid #ccc;*/
   box-sizing: border-box; /* paddingを含めて幅100%にするため */
   display: flex; /*要素を横並びに*/
   overflow-x: auto; /*はみ出した時だけ、スクロールバーを表示します。はみ出していない時は表示しません。*/
 }
 
-.scroll-item {
-  width: 200px; /* アイテムの幅を200pxに固定 */
-  height: 150px;
+.scroll_item {
+  width: 1200px; /* アイテムの幅を200pxに固定 */
+  /*height: 150px;*/
+  display: flex; /*文字と画像(divブロック要素)が中央揃えに*/
   margin-right: 12px; /* アイテム間の余白 */
   justify-content: center;
   align-items: center;
   flex-shrink: 0; /* 縮まないようにする 親の幅に合わせて縮まないで（縮小率0）という意味 */
+}
+
+/*.item2 {
+  display: flex;
+}*/
+
+.setumei {
+  font-size: 15px;
+  font-family: shippori_regular;
+  background-color: #DDD;
+}
+
+.item_setumei {
+  font-size: 20px;
+  margin-left: 30px;
+  width: 1000px;
+  height: 400px;
+  text-align: left;
+}
+
+/*.item_t {
+  width: 1000px;
+}*/
+
+.item1_text {
+  width: 500px;
+  height: 400px;
+}
+
+/*ABOUTとCONCEPTのCSS*/
+.section {
+  background-color: #727272;
+  padding: 16px;
+  margin: 0px 40px 50px 40px;
+}
+
+.midasi {
+  font-family: shippori_regular;
+  font-size: 24px;
+  color: #dddff3;
+
+}
+
+.writing {
+  font-size: 1.6rem;
+  color: #dddff3;
 }
